@@ -59,8 +59,7 @@ Plug 'Shougo/unite.vim'
 Plug 'dracula/vim'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'mhinz/vim-grepper'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -73,10 +72,10 @@ call plug#end()
 let g:indentLine_enabled = 1
 let g:indentLine_char = "⟩"
 
-" Airline
-let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
+" Lightline
+let g:lightline = { 'colorscheme': 'material_vim' }
 set laststatus=2
+set noshowmode
 
 " The quickest way to jump to a file in your project is with a fuzzy finder
 nnoremap <Leader>p :CtrlP<CR>
@@ -105,4 +104,7 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
+" Material theme
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'palenight'
 colorscheme material
