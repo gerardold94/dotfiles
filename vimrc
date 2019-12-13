@@ -27,7 +27,7 @@ set scrolloff=1
 set sidescrolloff=5
 
 
-let mapleader=","
+let mapleader="\<SPACE>"
 
 " Disable mouse support
 set mouse=r
@@ -66,6 +66,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 Plug 'justinmk/vim-sneak'
 Plug 'kaicataldo/material.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 " Indentation guides
@@ -73,7 +76,7 @@ let g:indentLine_enabled = 1
 let g:indentLine_char = "⟩"
 
 " Lightline
-let g:lightline = { 'colorscheme': 'material_vim' }
+let g:lightline = { 'colorscheme': 'onedark' }
 set laststatus=2
 set noshowmode
 
@@ -105,6 +108,17 @@ if (has('termguicolors'))
 endif
 
 " Material theme
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'palenight'
-colorscheme material
+colorscheme onedark
+
+" Easier split navigation
+nnoremap <Leader>j <C-W><C-J>
+nnoremap <Leader>k <C-W><C-K>
+nnoremap <Leader>l <C-W><C-L>
+nnoremap <Leader>h <C-W><C-H>
+
+nnoremap <Leader>wl :vsp<CR>
+nnoremap <Leader>wj :sp<CR>
+
+" Prettier
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
